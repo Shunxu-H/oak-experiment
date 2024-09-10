@@ -1,0 +1,17 @@
+cargo-features = ["trim-paths"]
+
+[workspace]
+resolver = "2"
+
+members = [
+    "enclave_app",
+    "service",
+]
+
+[profile.dev]
+panic = "abort" # Unwinding panics are not supported without std
+
+[profile.release]
+panic = "abort"     # Unwinding panics are not supported without std
+strip = "debuginfo" # Debug info is not always deterministic
+trim-paths = "all"  # Remove path prefixes outside the workspace root

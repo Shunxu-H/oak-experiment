@@ -1,0 +1,13 @@
+[package]
+name = "enclave_app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+oak_restricted_kernel_sdk = { git = "https://github.com/project-oak/oak.git" }
+service = { path = "../service" }
+
+[[bin]]
+name = "enclave_app"
+test = false
+bench = false

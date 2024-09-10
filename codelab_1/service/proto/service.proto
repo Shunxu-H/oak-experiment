@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "proto/rust_proto_stubs/evidence.proto";
+
+package sealed.codelabs.enclave;
+
+message EchoRequest {
+  bytes msg = 1;
+}
+
+message EchoResponse {
+  bytes msg = 1;
+}
+
+message GetEvidenceRequest {}
+
+message GetEvidenceResponse {
+  oak.attestation.v1.Evidence evidence = 1;
+}
+
+service EnclaveService {
+  // method_id: 0
+  rpc Echo(EchoRequest) returns (EchoResponse) {}
+
+  // method_id: 1
+  rpc GetEvidence(GetEvidenceRequest) returns (GetEvidenceResponse) {}
+}

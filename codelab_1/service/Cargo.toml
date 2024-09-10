@@ -1,0 +1,19 @@
+[package]
+name = "service"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+log = "*"
+micro_rpc = { git = "https://github.com/project-oak/oak.git" }
+oak_attestation = { git = "https://github.com/project-oak/oak.git" }
+oak_restricted_kernel_sdk = { git = "https://github.com/project-oak/oak.git"}
+oak_proto_rust = { git = "https://github.com/project-oak/oak.git" }
+prost = { version = "*", default-features = false, features = ["prost-derive"] }
+
+# Pin curve25519-dalek to 4.1.1 because 4.1.2 depends on new compiler features.
+curve25519-dalek = "=4.1.1"
+
+[build-dependencies]
+micro_rpc_build = { git = "https://github.com/project-oak/oak.git" }
+prost-build = "*"
